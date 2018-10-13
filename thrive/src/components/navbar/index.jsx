@@ -51,7 +51,6 @@ export class NavBar extends React.Component {
       <>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
-
           <Link className="navbar-brand" to="/"> Out & Equal Connect </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -60,7 +59,7 @@ export class NavBar extends React.Component {
           <div className="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul className="navbar-nav mr-auto">
               {routes.map((route, index) => (
-                <RouteNavbarLink index={index} key={index} {...route} />
+                (route.hidden) ? <></> : <RouteNavbarLink index={index} key={index} {...route} />
               ))}
             </ul>
             <form className="form-inline my-2 my-lg-0">
