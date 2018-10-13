@@ -13,8 +13,8 @@ export class DocumentRepo {
 	}
 }
 
-export @observer
-class DocumentDetailsPage extends React.Component {
+@observer
+export class DocumentDetailsPage extends React.Component {
 
 
   id = null;
