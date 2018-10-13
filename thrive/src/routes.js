@@ -1,4 +1,3 @@
-import { HomePage } from './pages/home'
 import { DocumentDetailsPage } from './pages/documents/details';
 import { DocumentListPage } from './pages/documents/list';
 import { ProfileDetailsPage } from './pages/profiles/details';
@@ -9,12 +8,7 @@ import { CompanyRegisterPage } from './pages/companyregister';
 const TODO = () => 'TODO!!!'
 
 export const routes = [
-  {
-    path: "/",
-    text: "Home",
-    exact: true,
-    main: HomePage,
-  },
+
   {
     path: "/register",
     text: "Register",
