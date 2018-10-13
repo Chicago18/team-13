@@ -8,6 +8,7 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/**/dataSources.xml
 
 # Generated files
 .idea/**/contentModel.xml
@@ -116,3 +117,5 @@ Temporary Items
 
 # Instance configuration files
 /instance
+
+__pycache__/
