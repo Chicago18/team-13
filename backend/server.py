@@ -36,13 +36,23 @@ def post_users():
         return jsonify({'id': user_id})
 
 
-@app.route('/documents', methods=['POST'])
+@app.route('/documents', methods=['GET', 'POST'])
 def post_doc():
-    body = request.get_json()
-    #fields: title, full_text,upld_by,href,doctype,description
-    cur = make_cursor()
-    cur.execute("""INSERT INTO doc {title}, {full_text}, {upld_by}, {href},
-     {doctype},{description}""").format(**body)
+    if request.method == 'GET':
+        cur = make_cursor()
+        cur.execute("""SELECT * from doc""")
+        rows = cur.fetchall()
+        return jsonify_rows(rows)
+
+    elif request.method == 'POST':
+        body = request.get_json()
+        cur = make_cursor()
+        cur.execute("""
+            INSERT INTO doc (title, full_text, upld_by, href, doctype, description)
+            VALUES (%(title)s, %(full_text)s, %(upld_by)s, %(href)s, %(doctype)s, %(description)s)
+            RETURNING id""", body)
+        row = cur.fetchone()
+        return jsonify({'id': row['id']})
 
 
 @app.route('/documents/:id')
@@ -66,7 +76,6 @@ def make_company():
     # fields: name, member_since, egr_lead
     cur = make_cursor()
     cur.execute("""INSERT INTO customer {id}, {name}, {egr_lead}""".format(**body))
-
 
 
 def get_company():
