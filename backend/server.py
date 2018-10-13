@@ -6,7 +6,7 @@ app = Flask(__name__)
 conn = psycopg2.connect("dbname='unify' user='postgres' host='52.201.219.91' password='foobar'")
 
 
-@app.route('/')
+@app.route('/'), methods=["GET", "POST"])
 def hello_world():
     return 'Hello, World!'
 
@@ -15,7 +15,7 @@ def make_cursor():
 def jsonify_rows(rows):
     return jsonify([dict(row) for row in rows])
 
-@app.route('/users')
+@app.route('/users') methods=["GET", "POST"])
 def get_users():
     cur = make_cursor()
     cur.execute("""SELECT * from person""")
@@ -23,7 +23,7 @@ def get_users():
     return jsonify_rows(rows)
 
 
-@app.route('/documents')
+@app.route('/documents'), methods=["GET", "POST"])
 def get_docs():
     cur = make_cursor()
     search = request.args.get('q')
@@ -39,7 +39,7 @@ def get_docs():
     return jsonify_rows(rows)
 
 
-@app.route('/documents/:id')
+@app.route('/documents/:id'), methods=["GET", "POST"])
 def get_doc_by_id():
     cur = make_cursor()
     cur.execute("""SELECT * from doc where id = %d""")
