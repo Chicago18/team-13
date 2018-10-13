@@ -13,68 +13,16 @@ export class DocumentListPage extends React.Component {
         <p>DOCUMENTS</p>
         <Link to="/documents/1">#1</Link>
 
-        <div class="card" style={{width: '100%'}}>
-  <div class="card-body">
-    <h5 class="card-title">Card 1</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
-      <DocumentCard title="Card 999" subtitle="Card subtitle" description="foobar" />
-
-
-        <div class="card" style={{width: '100%'}}>
-  <div class="card-body">
-    <h5 class="card-title">Card 3</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
-<div class="card" style={{width: '100%'}}>
-  <div class="card-body">
-    <h5 class="card-title">Card 4</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
-<div class="card" style={{width: '100%'}}>
-  <div class="card-body">
-    <h5 class="card-title">Card 5</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
-<div class="card" style={{width: '100%'}}>
-  <div class="card-body">
-    <h5 class="card-title">Card 6</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
-<div class="card" style={{width: '100%'}}>
-  <div class="card-body">
-    <h5 class="card-title">Card 7 </h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
+        <DocumentCard title="Card 1" subtitle="Card subtitle" description="1" />
+        <DocumentCard title="Card 2" subtitle="Card subtitle" description="2" />
+        <DocumentCard title="Card 3" subtitle="Card subtitle" description="3" />
+        <DocumentCard title="Card 4" subtitle="Card subtitle" description="4" />
+        <DocumentCard title="Card 5" subtitle="Card subtitle" description="5" />
+        <DocumentCard title="Card 6" subtitle="Card subtitle" description="6" />
+        <DocumentCard title="Card 7" subtitle="Card subtitle" description="7" />
+        <DocumentCard title="Card 8" subtitle="Card subtitle" description="8" />
+        <DocumentCard title="Card 9" subtitle="Card subtitle" description="9" />
+        <DocumentCard title="Card 10" subtitle="Card subtitle" description="10" />
 
 
       </>
