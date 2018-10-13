@@ -20,28 +20,14 @@ export const routes = [
     text: "Register",
     icon: "home",
     exact: true,
-    main: ProfileListPage,
-    routes: [
-      {
-        path: "/register",
-        text: "Register",
-        main: RegisterPage,
-      },
-    ]
+    main: ProfileListPage
   },
   {
-    path: "company register",
+    path: "/companyregister",
     text: "Company Register",
     icon: "home",
     exact: true,
-    main: ProfileListPage,
-    routes: [
-      {
-        path: "/companyregister",
-        text: "Company Register",
-        main: CompanyRegisterPage,
-      },
-    ]
+    main: CompanyRegisterPage
   },
   {
     path: "/documents",
