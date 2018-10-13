@@ -30,6 +30,20 @@ export const routes = [
     ]
   },
   {
+    path: "company register",
+    text: "Company Register",
+    icon: "home",
+    exact: true,
+    main: ProfileListPage,
+    routes: [
+      {
+        path: "/companyregister",
+        text: "Company Register",
+        main: CompanyRegisterPage,
+      },
+    ]
+  },
+  {
     path: "/documents",
     text: "Documents",
     icon: "home",
