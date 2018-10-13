@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 
 export default class App extends React.Component {
   render() {
@@ -7,7 +7,15 @@ export default class App extends React.Component {
      <Image source={require('.front-end/Pictures/logo.png')}
    
       <View style={styles.container}>
-        <Text>WELCOME!</Text>
+
+      <Text>
+
+        <Text>WELCOME! {"\n"}  
+        ¡Bienvenido!
+        स्वागत हे! 
+        Chào Mừng!
+        Bem Vinda!</Text>
+
       </View>
     );
   }
@@ -21,3 +29,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
