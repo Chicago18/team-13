@@ -1,32 +1,26 @@
-import { HomePage } from './pages/home'
 import { DocumentDetailsPage } from './pages/documents/details';
 import { DocumentListPage } from './pages/documents/list';
 import { ProfileDetailsPage } from './pages/profiles/details';
 import { ProfileListPage } from './pages/profiles/list';
 import { RegisterPage } from './pages/register';
+import { CompanyRegisterPage } from './pages/companyregister';
 
 const TODO = () => 'TODO!!!'
 
 export const routes = [
   {
-    path: "/",
-    text: "Home",
-    exact: true,
-    main: HomePage,
-  },
-  {
-    path: "register",
+    path: "/register",
     text: "Register",
     icon: "home",
     exact: true,
-    main: ProfileListPage,
-    routes: [
-      {
-        path: "/register",
-        text: "Register",
-        main: RegisterPage,
-      },
-    ]
+    main: RegisterPage
+  },
+  {
+    path: "/companyregister",
+    text: "Company Register",
+    icon: "home",
+    exact: true,
+    main: CompanyRegisterPage
   },
   {
     path: "/documents",

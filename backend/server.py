@@ -2,10 +2,16 @@ import psycopg2
 import psycopg2.extras
 from flask import Flask, jsonify, request, abort
 
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)
 app.config.from_object('config')  # default config
 app.config.from_pyfile('config.py')  # specific instance config
 conn = psycopg2.connect(**app.config['PSYCOPG2_CONFIG'])
+
+
+@app.after_request
+def allow_cors(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
 
 def make_cursor():
@@ -95,4 +101,4 @@ def get_company():
 
 
 if __name__ == '__main__':
-      app.run(host='127.0.0.1', port=8081)
+      app.run(host='127.0.0.1', port=80)
