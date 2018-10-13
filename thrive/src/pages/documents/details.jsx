@@ -62,7 +62,7 @@ export class DocumentDetailsPage extends React.Component {
 		</div>
 		<div class="row">{this.document.description}</div>
 		<div class="row embed-responsive embed-responsive-16by9">
-  			<iframe class="embed-responsive-item" src={this.document.href} allowfullscreen></iframe>
+  			<iframe class="embed-responsive-item" src={this.document.href} allowFullScreen></iframe>
 		</div>
 		</div>
 		);
