@@ -1,31 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DocumentCard } from '../../../components/document-card'
+import { observer } from 'mobx-react';
+import { observable } from 'mobx';
 
 import './index.css'
 
+export class DocumentsRepo {
+
+  constructor(baseUrl) {
+    this.baseUrl = baseUrl;
+  }
+
+  get() {
+    return fetch(this.baseUrl + '/documents').then(x => x.json());
+  }
+}
+
+@observer
 export class DocumentListPage extends React.Component {
 
+  @observable documentList = null;
+
+  constructor(props) {
+    super(props);
+    this.repo = new DocumentsRepo('http://52.201.219.91:8080')
+  }
+
+  async componentWillMount() {
+    this.documentList = await this.repo.get();
+  }
+
   render() {
+    if (!this.documentList) {
+      return 'Loading...';
+    }
 
-    return (
-      <>
-        <p>DOCUMENTS</p>
-        <Link to="/documents/1">#1</Link>
-
-        <DocumentCard title="Card 1" subtitle="Card subtitle" description="1" />
-        <DocumentCard title="Card 2" subtitle="Card subtitle" description="2" />
-        <DocumentCard title="Card 3" subtitle="Card subtitle" description="3" />
-        <DocumentCard title="Card 4" subtitle="Card subtitle" description="4" />
-        <DocumentCard title="Card 5" subtitle="Card subtitle" description="5" />
-        <DocumentCard title="Card 6" subtitle="Card subtitle" description="6" />
-        <DocumentCard title="Card 7" subtitle="Card subtitle" description="7" />
-        <DocumentCard title="Card 8" subtitle="Card subtitle" description="8" />
-        <DocumentCard title="Card 9" subtitle="Card subtitle" description="9" />
-        <DocumentCard title="Card 10" subtitle="Card subtitle" description="10" />
-
-
-      </>
-    );
+    let documents = [];
+    for (var i = 0; i < this.documentList.length; i++) {
+        documents.push(<DocumentCard title={this.documentList[i].title} subtitle="Author's name" description={this.documentList[i].description} />)
+    };
+    return <div>{documents}</div>;
   }
 }
