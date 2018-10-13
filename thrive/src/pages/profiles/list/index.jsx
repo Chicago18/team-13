@@ -4,14 +4,14 @@ import { DocumentCard } from '../../../components/document-card'
 
 import './index.css'
 
-export class DocumentListPage extends React.Component {
+export class ProfileListPage extends React.Component {
 
   render() {
 
     return (
       <>
-        <p>DOCUMENTS</p>
-        <Link to="/documents/1">#1</Link>
+        <p>Profiles</p>
+        <Link to="/profiles/1">#1</Link>
 
         <DocumentCard title="Card 1" subtitle="Card subtitle" description="1" />
         <DocumentCard title="Card 2" subtitle="Card subtitle" description="2" />
@@ -23,8 +23,6 @@ export class DocumentListPage extends React.Component {
         <DocumentCard title="Card 8" subtitle="Card subtitle" description="8" />
         <DocumentCard title="Card 9" subtitle="Card subtitle" description="9" />
         <DocumentCard title="Card 10" subtitle="Card subtitle" description="10" />
-
-
       </>
     );
   }
