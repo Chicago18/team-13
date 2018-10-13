@@ -2,8 +2,10 @@ import psycopg2
 import psycopg2.extras
 from flask import Flask, jsonify, request
 
-app = Flask(__name__)
-conn = psycopg2.connect("dbname='unify' user='postgres' host='52.201.219.91' password='foobar'")
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_object('config')  # default config
+app.config.from_pyfile('config.py')  # specific instance config
+conn = psycopg2.connect(**app.config['PSYCOPG2_CONFIG'])
 
 
 @app.route('/')
