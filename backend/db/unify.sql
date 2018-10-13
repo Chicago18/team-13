@@ -72,4 +72,26 @@ create table if not exists company
 alter table company owner to postgres
 ;
 
+create table if not exists post
+(
+	id serial not null
+		constraint post_pkey
+			primary key,
+	title text not null,
+	person_id serial not null
+		constraint post_person_id_fkey
+			references person
+				on delete cascade,
+	community_id serial not null
+		constraint post_community_id_fkey
+			references person_iden
+				on delete set null,
+	post_text text not null,
+	num_reply integer not null
+)
+;
+
+alter table post owner to postgres
+;
+
 
