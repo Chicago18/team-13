@@ -23,8 +23,6 @@ export class DocumentListPage extends React.Component {
         <DocumentCard title="Card 8" subtitle="Card subtitle" description="8" />
         <DocumentCard title="Card 9" subtitle="Card subtitle" description="9" />
         <DocumentCard title="Card 10" subtitle="Card subtitle" description="10" />
-
-
       </>
     );
   }
