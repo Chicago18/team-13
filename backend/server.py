@@ -2,32 +2,41 @@ import psycopg2
 import psycopg2.extras
 from flask import Flask, jsonify, request
 
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__)
 app.config.from_object('config')  # default config
 app.config.from_pyfile('config.py')  # specific instance config
 conn = psycopg2.connect(**app.config['PSYCOPG2_CONFIG'])
 
+
 def make_cursor():
     return conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+
 def jsonify_rows(rows):
     return jsonify([dict(row) for row in rows])
 
-@app.route('/users', methods = ['POST'])
+
+@app.route('/users', methods=['GET', 'POST'])
 def post_users():
-    body = request.get_json()
-    #fields:lastname, firstname, email, dateofbirth, job_level, company, iden
-    cur = make_cursor()
-    cur.execute("""INSERT INTO person {lastname}, {firstname}, {email},
-    {dateofbirth}, {job_level}, {company}, {iden}""").format(**body)
+    if request.method == 'GET':
+        cur = make_cursor()
+        cur.execute("""SELECT * from person""")
+        rows = cur.fetchall()
+        return jsonify_rows(rows)
 
-def get_users():
-    cur = make_cursor()
-    cur.execute("""SELECT * from person""")
-    rows = cur.fetchall()
-    return jsonify_rows(rows)
+    elif request.method == 'POST':
+        body = request.get_json()
+        cur = make_cursor()
+        cur.execute("""
+            INSERT INTO person (lastname, firstname, email, dateofbirth, job_level, company)
+            VALUES (%(lastname)s, %(firstname)s, %(email)s, %(dateofbirth)s, %(job_level)s, %(company)s)
+            RETURNING user_id""", body)
+        row = cur.fetchone()
+        user_id = row['user_id']
+        return jsonify({'id': user_id})
 
 
-@app.route('/documents', methods =['POST'])
+@app.route('/documents', methods=['POST'])
 def post_doc():
     body = request.get_json()
     #fields: title, full_text,upld_by,href,doctype,description
@@ -35,27 +44,21 @@ def post_doc():
     cur.execute("""INSERT INTO doc {title}, {full_text}, {upld_by}, {href},
      {doctype},{description}""").format(**body)
 
+
+@app.route('/documents/:id')
 def get_docs():
     cur = make_cursor()
     search = request.args.get('q')
 
     if search:
-        cur.execute("""SELECT id FROM TAG_TABLE WHERE 'aaaaaaaa' LIKE '%' || tag_name || '%'""")
+        cur.execute("""SELECT * FROM doc WHERE description LIKE '%' || %s || '%'""", (search,))
     else:
         cur.execute("""SELECT * from doc""")
 
     rows = cur.fetchall()
 
-
     return jsonify_rows(rows)
 
-
-@app.route('/documents/:id')
-def get_doc_by_id():
-    cur = make_cursor()
-    cur.execute("""SELECT * from doc where id = %d""")
-    rows = cur.fetchone()
-    return jsonify_rows(rows)
 
 @app.route('/company', methods=['POST'])
 def make_company():
@@ -64,8 +67,9 @@ def make_company():
     cur = make_cursor()
     cur.execute("""INSERT INTO customer {id}, {name}, {egr_lead}""".format(**body))
 
-def get_company():
 
+
+def get_company():
     cur = make_cursor()
     cur.execute("""SELECT * from company""")
     rows = cur.fetchall()
