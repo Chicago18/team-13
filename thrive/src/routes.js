@@ -4,7 +4,7 @@ import { DocumentListPage } from './pages/documents/list';
 import { ProfileDetailsPage } from './pages/profiles/details';
 import { ProfileListPage } from './pages/profiles/list';
 import { RegisterPage } from './pages/register';
-import { CompanyRegisterPage } from './pages/commpanyregister';
+import { CompanyRegisterPage } from './pages/companyregister';
 
 const TODO = () => 'TODO!!!'
 
