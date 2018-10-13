@@ -51,7 +51,7 @@ export class NavBar extends React.Component {
       <>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
-          <Link className="navbar-brand" to="/"> Out & Equal Connect </Link>
+          <Link style={{marginTop: '5px'}} className="navbar-brand" to="/"><img style={{marginBottom: '5px'}} width="32px" height="32px" src="http://52.201.219.91:8081/logo-small.png" /> <span>Out & Equal Connect</span> </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
