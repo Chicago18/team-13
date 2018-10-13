@@ -4,7 +4,7 @@ import { BrowserRouter, Router } from 'react-router-dom';
 
 import { Provider as MobxProvider } from 'mobx-react';
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
-import DevTools from 'mobx-react-devtools';
+
 
 import { createBrowserHistory } from 'history';
 
@@ -27,7 +27,6 @@ ReactDOM.render(
       <Router history={history}>
         <App />
       </Router>
-      <DevTools />
     </>
   </MobxProvider>,
   document.getElementById('root'));
