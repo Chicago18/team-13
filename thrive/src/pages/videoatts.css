@@ -1,0 +1,24 @@
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    filter: url("data:image/svg+xml;utf9,<svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'><filter%20id='blur'><feGaussianBlur%20stdDeviation='10'%20/></filter></svg>#blur");
+      -webkit-filter:blur(10px);
+  -ms-filter: blur(10px);
+  -o-filter: blur(10px);
+  filter:blur(10px);
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    min-width: 150%;
+    min-height: 150%;
+    width: 0;
+    height: 0;
+}
