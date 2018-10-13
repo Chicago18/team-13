@@ -1,32 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+
 
 export default class App extends React.Component {
   render() {
     return (
-     <Image source={require('.front-end/Pictures/logo.png')}
+
    
       <View style={styles.container}>
+        <Text>WELCOME! </Text>
+        <Text> ¡Bienvenido!</Text>
+        <Text> स्वागत हे! </Text>
+        <Text> Chào Mừng!</Text>
+        <Text> Bem Vinda!</Text>
+        <Text> أهلا بك! </Text>
 
-      <Text>
 
-        <Text>WELCOME! {"\n"}  
-        ¡Bienvenido!
-        स्वागत हे! 
-        Chào Mừng!
-        Bem Vinda!</Text>
-
+        <Button
+  //onPress={onPressLearnMore}
+  title="START"
+  color="#841584"/>
       </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
