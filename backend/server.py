@@ -8,6 +8,12 @@ app.config.from_pyfile('config.py')  # specific instance config
 conn = psycopg2.connect(**app.config['PSYCOPG2_CONFIG'])
 
 
+@app.after_request
+def allow_cors(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
+
 def make_cursor():
     return conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
