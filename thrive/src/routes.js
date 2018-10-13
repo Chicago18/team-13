@@ -16,11 +16,11 @@ export const routes = [
     main: HomePage,
   },
   {
-    path: "register",
+    path: "/register",
     text: "Register",
     icon: "home",
     exact: true,
-    main: ProfileListPage
+    main: RegisterPage
   },
   {
     path: "/companyregister",
