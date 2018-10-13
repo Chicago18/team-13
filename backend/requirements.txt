@@ -1,3 +1,4 @@
 flask==1.0.2
+flask-cors
 psycopg2
 pdfminer.six
