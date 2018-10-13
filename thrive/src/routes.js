@@ -8,7 +8,6 @@ export const routes = [
   {
     path: "/",
     text: "Home",
-    icon: "home",
     exact: true,
     main: HomePage,
   },
