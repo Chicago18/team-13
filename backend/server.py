@@ -1,6 +1,6 @@
 import psycopg2
 import psycopg2.extras
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 conn = psycopg2.connect("dbname='unify' user='postgres' host='52.201.219.91' password='foobar'")
@@ -26,14 +26,25 @@ def get_users():
 @app.route('/documents')
 def get_docs():
     cur = make_cursor()
-    cur.execute("""SELECT * from doc""")
+    search = request.args.get('q')
+
+    if search:
+        cur.execute("""SELECT id FROM TAG_TABLE WHERE 'aaaaaaaa' LIKE '%' || tag_name || '%'""")
+    else:
+        cur.execute("""SELECT * from doc""")
+
     rows = cur.fetchall()
+
+
     return jsonify_rows(rows)
-def data():
-    user = request.args.get('user')
 
 
-
+@app.route('/documents/:id')
+def get_doc_by_id():
+    cur = make_cursor()
+    cur.execute("""SELECT * from doc where id = %d""")
+    rows = cur.fetchone()
+    return jsonify_rows(rows)
 
 @app.route('/company')
 def get_company():
