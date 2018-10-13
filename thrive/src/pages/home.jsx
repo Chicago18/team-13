@@ -5,7 +5,7 @@ export class HomePage extends React.Component {
     return (
       <div className="starter-template">
         <center><h1>Welcome to Out and Equal</h1></center>
-        <p className="lead">This site is for you to connect  .<br /> :).</p>
+        <center><p className="lead">This site is for you to connect  .<br /> :).</p></center>
       </div>);
   }
 }
