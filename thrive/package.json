@@ -1,24 +1,26 @@
 {
-  "name": "my-app",
+  "name": "Code-For-Good-Team-13",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.1.2",
     "lodash-es": "^4.17.11",
     "mobx": "^5.5.0",
     "mobx-react": "^5.2.8",
     "mobx-react-devtools": "^6.0.3",
     "mobx-react-router": "^4.0.5",
     "react": "^16.5.2",
+    "react-app-rewired": "^1.6.2",
     "react-dom": "^16.5.2",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,5 +30,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "customize-cra": "^0.1.1"
+  }
 }
