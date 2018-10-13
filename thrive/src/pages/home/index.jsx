@@ -5,7 +5,7 @@ export class HomePage extends React.Component {
   render() {
     return (
       <div className="starter-template">
-        <h1>Out & Equal Connect</h1>
+        <img style={{paddingBottom: '1em'}} src="http://52.201.219.91:8081/logo.png" />
 
 
 <div className="fullscreen-bg">
