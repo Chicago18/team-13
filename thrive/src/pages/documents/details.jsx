@@ -39,9 +39,7 @@ export class DocumentDetailsPage extends React.Component {
     	<div>
     	<div class="row">
     		<div class="col-sm-5">
-    			{this.document.title}
-    			
-    			
+    			<h2>{this.document.title}</h2>
 			</div>
     		<div class="col-sm-5">
 
@@ -62,11 +60,9 @@ export class DocumentDetailsPage extends React.Component {
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			In today’s shifting political environment, an organization’s commitment to diversity and inclusion is being judged against how/when they respond to external events impacting underrepresented communities. The LGBTQ community is concerned that reversal of legal protections for transgender people may indicate other rights are at risk – including those enacted by employers. Lately, leadership teams are being asked from multiple stakeholders to publicly state their commitment to workplace equity/inclusion. Being prepared to respond in a timely way is key to protecting your reputation as a best place to work. This session will use real case studies that demonstrate what’s at stake and provide tips on how to respond effectively while balancing the needs of multiple stakeholders.
-		</div>
+		<div class="row">{this.document.description}</div>
 		<div class="row embed-responsive embed-responsive-16by9">
-  			<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1DOnGxGTpg" allowfullscreen></iframe>
+  			<iframe class="embed-responsive-item" src={this.document.href} allowfullscreen></iframe>
 		</div>
 		</div>
 		);
