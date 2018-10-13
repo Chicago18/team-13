@@ -8,7 +8,10 @@ import { CompanyRegisterPage } from './pages/companyregister';
 const TODO = () => 'TODO!!!'
 
 export const routes = [
-
+  {
+    path: "/logo.png",
+    icon: "logo"
+  },
   {
     path: "/register",
     text: "Register",
