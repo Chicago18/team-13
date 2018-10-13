@@ -4,12 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 export default class App extends React.Component {
   render() {
     return (
-
-
-        <Image source={require('./Pictures/logo.png')}
-
+     <Image source={require('.front-end/Pictures/logo.png')}
+   
       <View style={styles.container}>
-        <Text>Welcome!</Text>
+        <Text>WELCOME!</Text>
       </View>
     );
   }
