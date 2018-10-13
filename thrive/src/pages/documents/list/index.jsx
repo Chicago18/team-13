@@ -38,7 +38,8 @@ export class DocumentListPage extends React.Component {
 
     let documents = [];
     for (var i = 0; i < this.documentList.length; i++) {
-        documents.push(<DocumentCard title={this.documentList[i].title} subtitle="Author's name" description={this.documentList[i].description} />)
+        documents.push(
+          <DocumentCard title=<Link to="/documents/{i}">{this.documentList[i].title}</Link> subtitle="Author's name" description={this.documentList[i].description} />)
     };
     return <div>{documents}</div>;
   }
