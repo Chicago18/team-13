@@ -12,7 +12,6 @@ def hello_world():
 
 def make_cursor():
     return conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-
 def jsonify_rows(rows):
     return jsonify([dict(row) for row in rows])
 
@@ -30,7 +29,18 @@ def get_docs():
     cur.execute("""SELECT * from doc""")
     rows = cur.fetchall()
     return jsonify_rows(rows)
+def data():
+    user = request.args.get('user')
 
+
+
+
+@app.route('/company')
+def get_company():
+    cur = make_cursor()
+    cur.execute("""SELECT * from company""")
+    rows = cur.fetchall()
+    return jsonify_rows(rows)
 
 
 if __name__ == '__main__':
