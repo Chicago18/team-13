@@ -23,7 +23,7 @@ export class DocumentDetailsPage extends React.Component {
   constructor(props) {
     super(props);
     this.id = this.props.match.params.id;
-    this.repo = new DocumentRepo('http://52.201.219.91:8080')
+    this.repo = new DocumentRepo('http://52.201.219.91')
   }
 
   async componentWillMount() {
