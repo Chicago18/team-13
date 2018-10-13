@@ -1,8 +1,11 @@
 import psycopg2
 import psycopg2.extras
 from flask import Flask, jsonify, request, abort
+from flask_cors import CORS
 
 app = Flask(__name__, instance_relative_config=True)
+CORS(app)
+
 app.config.from_object('config')  # default config
 app.config.from_pyfile('config.py')  # specific instance config
 conn = psycopg2.connect(**app.config['PSYCOPG2_CONFIG'])
